@@ -5,13 +5,13 @@ import math
 import pygame.gfxdraw
 
 #GLOBALS
-WIDTH:  int = 1100
-HEIGHT: int = 200
+WIDTH:  int = 1280
+HEIGHT: int = 254
 FPS:    int = 120
 FONT = None
 
-NUMBER_OF_POINTS:   int = 75
-DISTANCE_THRESHOLD: int = 50
+NUMBER_OF_POINTS:   int = 125
+DISTANCE_THRESHOLD: int = 55
 
 RADIUS:     list = []
 POINTS:     list = []
