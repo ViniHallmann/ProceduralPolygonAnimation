@@ -51,7 +51,7 @@ def set_speed():
 
 def init_font():
     global FONT
-    FONT = pygame.font.Font("inter.ttf", 36)
+    FONT = pygame.font.Font("assets/inter.ttf", 36)
 
 #UPDATE FUNCTIONS==================================================================================================
 def update_points():
