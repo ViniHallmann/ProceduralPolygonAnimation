@@ -5,7 +5,7 @@ import math
 import pygame.gfxdraw
 
 #GLOBALS
-WIDTH:  int = 900
+WIDTH:  int = 1100
 HEIGHT: int = 200
 FPS:    int = 120
 FONT = None
@@ -20,7 +20,7 @@ COLORS:     list = []
 
 LINE_COLOR:        tuple = (255, 255, 255, 50)
 GREY_COLOR:        tuple = (150, 150, 150,50)
-BACKGROUND_COLOR:  tuple = (15, 15, 30)
+BACKGROUND_COLOR:  tuple = (13, 17, 23)
 
 NAME_POSITION:  tuple = WIDTH // 2 - 150, HEIGHT // 2 - 50
 TITLE_POSITION: tuple = WIDTH // 2 - 168, HEIGHT // 2
@@ -90,7 +90,7 @@ def draw_points(screen):
 
 def draw_title(screen):
     name = FONT.render(NAME_TEXT, True, LINE_COLOR)
-    title = FONT.render(NAME_POSITION, True, GREY_COLOR)
+    title = FONT.render(TITLE_TEXT, True, GREY_COLOR)
 
     screen.blit(name, NAME_POSITION)
     screen.blit(title, TITLE_POSITION)

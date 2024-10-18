@@ -8,7 +8,7 @@ Esse aqui é o GIF que aparece logo no inicio do perfil do usuário:
 
 Olhando isso pensei que seria legal fazer algo semelhante em Python. Usando PyGame consegui gerar uma animação procedural bem parecida com a referência. A animação é criada a partir de pontos que se movem aleatoriamente, e as conexões entre esses pontos são desenhadas quando eles estão próximos o suficiente. Isso resulta em uma visualização interessante e dinâmica.
 
-![Resultado](PolygonAnimation-VinciusHallmann.gif)
+![Resultado](assets/GITHUB_BACKGROUND_COLOR_PolygonAnimation-ViniciusHallmann.gif)
 
 ### **Como funciona o código**:
 - Um número fixo de pontos é gerado aleatoriamente na tela.
