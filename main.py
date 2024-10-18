@@ -10,8 +10,8 @@ HEIGHT: int = 254
 FPS:    int = 120
 FONT = None
 
-NUMBER_OF_POINTS:   int = 150
-DISTANCE_THRESHOLD: int = 55
+NUMBER_OF_POINTS:   int = 175
+DISTANCE_THRESHOLD: int = 60
 
 RADIUS:     list = []
 POINTS:     list = []
@@ -31,7 +31,7 @@ TITLE_TEXT: str = "Software Developer"
 #SETUP FUNCTIONS===================================================================================================
 def generate_random_radius():
     for _ in range(NUMBER_OF_POINTS):
-        RADIUS.append(random.randint(1, 2))
+        RADIUS.append(random.randint(2, 3))
 
 def generate_random_colors():
     for _ in range(NUMBER_OF_POINTS):
@@ -58,10 +58,26 @@ def update_points():
     for i in range(NUMBER_OF_POINTS):
         x, y = POINTS[i]
         sx, sy = SPEED[i]
+        
+        #COLISÃO NAS BORDAS
+        #"""
+        x += sx
+        y += sy
+        if x <= 0 or x >= WIDTH:
+            sx *= -1  
+    
+        if y <= 0 or y >= HEIGHT:
+            sy *= -1  
+        
+        POINTS[i] = (x, y)
+        SPEED[i]  = (sx, sy)
+        #"""
+        #SEM COLISÃO NAS BORDAS
+        """
         x = (x + sx) % WIDTH
         y = (y + sy) % HEIGHT
         POINTS[i] = (x, y)
-
+        """
 def euclidean_distance(p1, p2):
     return math.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
 
