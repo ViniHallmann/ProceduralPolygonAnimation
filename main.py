@@ -10,7 +10,7 @@ HEIGHT: int = 254
 FPS:    int = 120
 FONT = None
 
-NUMBER_OF_POINTS:   int = 125
+NUMBER_OF_POINTS:   int = 150
 DISTANCE_THRESHOLD: int = 55
 
 RADIUS:     list = []
@@ -45,8 +45,8 @@ def set_points():
 
 def set_speed():
     for _ in range(NUMBER_OF_POINTS):
-        x = random.uniform(-0.5, 0.5)
-        y = random.uniform(-0.5, 0.5)
+        x = random.uniform(-1, 1)
+        y = random.uniform(-1, 1)
         SPEED.append((x, y))
 
 def init_font():
@@ -68,7 +68,7 @@ def euclidean_distance(p1, p2):
 def get_nearest_neighbours(point) -> list:
     neighbours = []
     for p in POINTS:
-        if euclidean_distance(point, p) < DISTANCE_THRESHOLD and p != point:
+        if euclidean_distance(point, p) <= DISTANCE_THRESHOLD and p != point:
             neighbours.append(p)
     
     return neighbours
@@ -77,11 +77,14 @@ def connect_points(screen):
     for point in POINTS:
         neighbours = get_nearest_neighbours(point)
         for neighbour in neighbours:
-            draw_line(screen, point, neighbour)
+            draw_line(screen, point, neighbour, update_color_transparency(euclidean_distance(point, neighbour)))
+
+def update_color_transparency(distance):
+    return (255, 255, 255, int(255 - (distance / DISTANCE_THRESHOLD) * 255))
 
 #DRAWING FUNCTIONS=================================================================================================
-def draw_line(screen, point, neighbour):
-    pygame.gfxdraw.line(screen, int(point[0]), int(point[1]), int(neighbour[0]), int(neighbour[1]), LINE_COLOR)
+def draw_line(screen, point, neighbour, color):
+    pygame.gfxdraw.line(screen, int(point[0]), int(point[1]), int(neighbour[0]), int(neighbour[1]), color)
 
 def draw_points(screen):
     for i, point in enumerate(POINTS):
