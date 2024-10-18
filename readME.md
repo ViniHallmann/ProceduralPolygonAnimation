@@ -26,7 +26,7 @@ Sinta-se à vontade para explorar e modificar o código para personalizar o efei
   - A quantidade de pontos
   - A distância mínima para a conexão entre dois pontos.
 
- ### **Falta fazer***
+ ### **Falta fazer:**
 
  - Suaviação do desenho da linha conforme a distancia entre dois pontos aumenta
  - Refatoração num geral
